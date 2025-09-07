@@ -8,8 +8,12 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((err) => {
-  if (err) throw err;
-  console.log('MySQL connected!');
+  if (err) {
+    console.error("MySQL not ready, retrying in 5s...", err.message);
+    setTimeout(connectWithRetry, 5000);
+  } else {
+    console.log("Database connected!");
+  }
 });
 
 module.exports = connection;
