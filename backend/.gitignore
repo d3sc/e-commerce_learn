@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/generated/prisma
+# pnpm cache
+.pnpm-store/
+# node_modules
+node_modules/
+
+.env
